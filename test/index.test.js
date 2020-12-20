@@ -11,30 +11,30 @@ const fs = require('fs')
 
 describe('WebsiteGenerator', () => {
   const websiteName = 'myWebsite'
-  afterEach(() => {
-    fs.rmdirSync(`./${websiteName}`, { recursive: true, force: true })
+  afterEach(async () => {
+    await fs.rmdir(`./${websiteName}`, { recursive: true, force: true }, () => {})
   })
-  it('creates new directory using given website name', () => {
+  it('creates new directory using given website name', async () => {
     const websiteGenerator = new WebsiteGenerator()
 
-    websiteGenerator.generate(websiteName)
+    await websiteGenerator.generate(websiteName)
     const directory = fs.existsSync(`./${websiteName}`)
     expect(directory).toBeTruthy()
   })
 
-  it('creates an index.html file in the website directory', () => {
+  it('creates an index.html file in the website directory', async () => {
     const websiteGenerator = new WebsiteGenerator()
 
-    websiteGenerator.generate(websiteName)
+    await websiteGenerator.generate(websiteName)
 
     const htmlFile = fs.existsSync(`./${websiteName}/index.html`)
     expect(htmlFile).toBeTruthy()
   })
 
-  it('index has the website name as title', () => {
+  it('index has the website name as title', async () => {
     const websiteGenerator = new WebsiteGenerator()
 
-    websiteGenerator.generate(websiteName)
+    await websiteGenerator.generate(websiteName)
     const fileContents = fs.readFileSync(`./${websiteName}/index.html`, { encoding: 'utf-8' })
     expect(fileContents).toContain(`<title>${websiteName}</title>`)
   })
