@@ -30,4 +30,12 @@ describe('WebsiteGenerator', () => {
     const htmlFile = fs.existsSync(`./${websiteName}/index.html`)
     expect(htmlFile).toBeTruthy()
   })
+
+  it('index has the website name as title', () => {
+    const websiteGenerator = new WebsiteGenerator()
+
+    websiteGenerator.generate(websiteName)
+    const fileContents = fs.readFileSync(`./${websiteName}/index.html`, { encoding: 'utf-8' })
+    expect(fileContents).toContain(`<title>${websiteName}</title>`)
+  })
 })
