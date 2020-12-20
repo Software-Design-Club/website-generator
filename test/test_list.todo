@@ -1,0 +1,8 @@
+Create Basic Website:
+  - Create directory with given website name @done
+  - Create index.html file in the directory
+  - Index.html has title tag with website name as content
+  - If given an author name, index.html has meta tag with author name
+  - Create a unique directory when one with the website name already exists
+
+
