@@ -1,11 +1,12 @@
 Create Basic Website:
   - Create directory with given website name @done
   - Create index.html file in the directory @done
-  - Index.html has title tag with website name as content
-  - If given an author name, index.html has meta tag with author name
-  - Create a unique directory when one with the website name already exists
-  - Create test directory
-  - Move to async
-  - Valid HTML File
+  - Index.html has title tag with website name as content @done
 
+  - Valid HTML File @done
+
+Add more features:
+  - If given an author name, index.html has meta tag with author name
+  - Create test directory
+  - Create a unique directory when one with the website name already exists
 

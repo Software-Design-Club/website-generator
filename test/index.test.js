@@ -31,9 +31,18 @@ describe('WebsiteGenerator', () => {
     expect(htmlFile).toBeTruthy()
   })
 
-  it('index has the website name as title', () => {
+  it('creates a valid html file', () => {
     const websiteGenerator = new WebsiteGenerator()
 
+    websiteGenerator.generate(websiteName)
+
+    const fileContents = fs.readFileSync(`./${websiteName}/index.html`, { encoding: 'utf-8' })
+
+    expect(fileContents).toMatch(/^<html>\s*<head>(.|\s)*<\/head>(\s)*<body>(.|\s)*<\/body>(\s)*<\/html>$/gm)
+  })
+
+  it('index has the website name as title', () => {
+    const websiteGenerator = new WebsiteGenerator()
     websiteGenerator.generate(websiteName)
     const fileContents = fs.readFileSync(`./${websiteName}/index.html`, { encoding: 'utf-8' })
     expect(fileContents).toContain(`<title>${websiteName}</title>`)
