@@ -2,8 +2,13 @@ Create Basic Website:
   - Create directory with given website name @done
   - Create index.html file in the directory @done
   - Index.html has title tag with website name as content @done
-
   - Valid HTML File @done
+  - Prompt user for data
+  - Figure out entry point
+    - Kept it index.js
+  - Figure out how to coordinate getting answers with creating website
+    - Put everything in index.js and split out later
+
 
 Add more features:
   - If given an author name, index.html has meta tag with author name
