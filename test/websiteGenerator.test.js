@@ -1,4 +1,5 @@
-const WebsiteGenerator = require('../lib/index')
+
+const WebsiteGenerator = require('../lib/websiteGenerator')
 const fs = require('fs')
 const readline = require('readline')
 // Site name: awesomeco
