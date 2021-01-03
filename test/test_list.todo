@@ -3,18 +3,17 @@ Create Basic Website:
   - Create index.html file in the directory @done
   - Index.html has title tag with website name as content @done
   - Valid HTML File @done
-  - Prompt user for data
+  - Prompt user for data @done
     - Ask user for website name @done
     - WebsiteGenerator.generate is called with given name @done
-    - Rename stuff to make moresense
+  - Output directory, html file path to user
+
+Author name:
+  - If given an author name, index.html has meta tag with author name
+
+Redesign:
+  - Readline questions should return promises to allow for async / await
   - Figure out entry point
     - Kept it index.js
   - Figure out how to coordinate getting answers with creating website
     - Put everything in index.js and split out later
-
-
-Add more features:
-  - If given an author name, index.html has meta tag with author name
-  - Create test directory
-  - Create a unique directory when one with the website name already exists
-
