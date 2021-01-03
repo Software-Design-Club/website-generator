@@ -4,6 +4,9 @@ Create Basic Website:
   - Index.html has title tag with website name as content @done
   - Valid HTML File @done
   - Prompt user for data
+    - Ask user for website name @done
+    - WebsiteGenerator.generate is called with given name @done
+    - Rename stuff to make moresense
   - Figure out entry point
     - Kept it index.js
   - Figure out how to coordinate getting answers with creating website
