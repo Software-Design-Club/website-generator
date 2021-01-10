@@ -16,22 +16,25 @@ describe('WebsiteGenerator', () => {
   const ui = {
     write: jest.fn()
   }
+  let websiteGenerator
+
+  beforeEach(() => {
+    websiteGenerator = new WebsiteGenerator(ui)
+  })
+
   afterEach(() => {
     fs.rmdirSync(`./${websiteName}`, { recursive: true, force: true })
   })
 
   describe('generate', () => {
     it('creates new directory using given website name', () => {
-      const websiteGenerator = new WebsiteGenerator(ui)
-
       websiteGenerator.generate(websiteName)
+
       const directory = fs.existsSync(`./${websiteName}`)
       expect(directory).toBeTruthy()
     })
 
     it('creates an index.html file in the website directory', () => {
-      const websiteGenerator = new WebsiteGenerator(ui)
-
       websiteGenerator.generate(websiteName)
 
       const htmlFile = fs.existsSync(`./${websiteName}/index.html`)
@@ -39,8 +42,6 @@ describe('WebsiteGenerator', () => {
     })
 
     it('creates a valid html file', () => {
-      const websiteGenerator = new WebsiteGenerator(ui)
-
       websiteGenerator.generate(websiteName)
 
       const fileContents = fs.readFileSync(`./${websiteName}/index.html`, { encoding: 'utf-8' })
@@ -49,19 +50,16 @@ describe('WebsiteGenerator', () => {
     })
 
     it('index has the website name as title', () => {
-      const websiteGenerator = new WebsiteGenerator(ui)
       websiteGenerator.generate(websiteName)
+
       const fileContents = fs.readFileSync(`./${websiteName}/index.html`, { encoding: 'utf-8' })
       expect(fileContents).toContain(`<title>${websiteName}</title>`)
     })
 
     it('shows the user the path of the directory', () => {
-      const websiteGenerator = new WebsiteGenerator(ui)
       websiteGenerator.generate(websiteName)
 
       expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}`)
-
-
     })
   })
 
