@@ -6,7 +6,7 @@ Create Basic Website:
   - Prompt user for data @done
     - Ask user for website name @done
     - WebsiteGenerator.generate is called with given name @done
-  - Output directory, html file path to user
+  - Output directory, html file path to user @done
 
 Author name:
   - If given an author name, index.html has meta tag with author name

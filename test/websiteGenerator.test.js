@@ -61,6 +61,12 @@ describe('WebsiteGenerator', () => {
 
       expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}`)
     })
+
+    it('shows the user the path to the html file', () => {
+      websiteGenerator.generate(websiteName)
+
+      expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}/index.html`)
+    })
   })
 
   describe('prompt', () => {
