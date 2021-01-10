@@ -12,7 +12,7 @@ Author name:
   - If given an author name, index.html has meta tag with author name
 
 Redesign:
-  - Readline questions should return promises to allow for async / await
+  - Readline questions should return promises to allow for async / await @done
   - Figure out entry point
     - Kept it index.js
   - Figure out how to coordinate getting answers with creating website
