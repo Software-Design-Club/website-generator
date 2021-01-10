@@ -27,43 +27,43 @@ describe('WebsiteGenerator', () => {
   })
 
   describe('generate', () => {
-    it('creates new directory using given website name', () => {
-      websiteGenerator.generate(websiteName)
+    it('creates new directory using given website name',  async () => {
+      await websiteGenerator.generate(websiteName)
 
       const directory = fs.existsSync(`./${websiteName}`)
       expect(directory).toBeTruthy()
     })
 
-    it('creates an index.html file in the website directory', () => {
-      websiteGenerator.generate(websiteName)
+    it('creates an index.html file in the website directory', async () => {
+      await websiteGenerator.generate(websiteName)
 
       const htmlFile = fs.existsSync(`./${websiteName}/index.html`)
       expect(htmlFile).toBeTruthy()
     })
 
-    it('creates a valid html file', () => {
-      websiteGenerator.generate(websiteName)
+    it('creates a valid html file', async () => {
+      await websiteGenerator.generate(websiteName)
 
       const fileContents = fs.readFileSync(`./${websiteName}/index.html`, { encoding: 'utf-8' })
 
       expect(fileContents).toMatch(/^<html>\s*<head>(.|\s)*<\/head>(\s)*<body>(.|\s)*<\/body>(\s)*<\/html>$/gm)
     })
 
-    it('index has the website name as title', () => {
-      websiteGenerator.generate(websiteName)
+    it('index has the website name as title', async () => {
+      await websiteGenerator.generate(websiteName)
 
       const fileContents = fs.readFileSync(`./${websiteName}/index.html`, { encoding: 'utf-8' })
       expect(fileContents).toContain(`<title>${websiteName}</title>`)
     })
 
-    it('shows the user the path of the directory', () => {
-      websiteGenerator.generate(websiteName)
+    it('shows the user the path of the directory', async () => {
+      await websiteGenerator.generate(websiteName)
 
       expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}`)
     })
 
-    it('shows the user the path to the html file', () => {
-      websiteGenerator.generate(websiteName)
+    it('shows the user the path to the html file', async () => {
+      await websiteGenerator.generate(websiteName)
 
       expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}/index.html`)
     })
