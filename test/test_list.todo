@@ -13,7 +13,8 @@ Author name:
 
 Redesign:
   - Readline questions should return promises to allow for async / await @done
-  - Figure out entry point
-    - Kept it index.js
-  - Figure out how to coordinate getting answers with creating website
-    - Put everything in index.js and split out later
+  - Figure out entry point @done
+    - Kept it index.js @done
+  - Figure out how to coordinate getting answers with creating website @done
+    - Put everything in index.js and split out later @done
+  - Explore using fs.promises to generate directory and file
