@@ -17,4 +17,5 @@ Redesign:
     - Kept it index.js @done
   - Figure out how to coordinate getting answers with creating website @done
     - Put everything in index.js and split out later @done
-  - Explore using fs.promises to generate directory and file
+  - Explore writing our own Promise wrapper around fs functions
+    - Difference between mkdir and writeFile???
