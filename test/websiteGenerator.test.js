@@ -27,7 +27,7 @@ describe('WebsiteGenerator', () => {
   })
 
   describe('generate', () => {
-    it('creates new directory using given website name',  async () => {
+    it('creates new directory using given website name', async () => {
       await websiteGenerator.generate(websiteName)
 
       const directory = fs.existsSync(`./${websiteName}`)
