@@ -54,7 +54,7 @@ describe('WebsiteGenerator', () => {
   })
 
   describe('prompt', () => {
-    it('passes the user input to Website Generator', () => {
+    it('passes the user input to Website Generator', async () => {
       const ui = readline.createInterface({
         input: process.stdin,
         output: process.stdout
@@ -62,8 +62,9 @@ describe('WebsiteGenerator', () => {
       const websiteGenerator = new WebsiteGenerator(ui)
       websiteGenerator.generate = jest.fn()
 
-      websiteGenerator.prompt()
-      ui.write('my_website\n')
+      process.nextTick(() => ui.write('my_website\n'))
+
+      await websiteGenerator.prompt()
 
       expect(websiteGenerator.generate).toHaveBeenCalledWith('my_website')
     })
