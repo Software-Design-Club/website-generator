@@ -9,7 +9,9 @@ const readline = require('readline')
 // Created ./awesomeco
 // Created ./awesomeco/index.html
 // Created ./awesomeco/js/
+// Created ./awesomeco/js/script.js
 // Created ./awesomeco/css/
+// Created ./awesomeco/css/styles.css
 
 describe('WebsiteGenerator', () => {
   const websiteName = 'myWebsite'

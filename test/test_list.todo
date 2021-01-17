@@ -9,7 +9,7 @@ Create Basic Website:
   - Output directory, html file path to user @done
 
 Author name:
-  - If given an author name, index.html has meta tag with author name
+  - If given an author name, index.html has meta tag with author name @done
 
 Redesign:
   - Readline questions should return promises to allow for async / await @done
