@@ -56,6 +56,13 @@ describe('WebsiteGenerator', () => {
       expect(fileContents).toContain(`<title>${websiteName}</title>`)
     })
 
+    it('includes the author name in the html meta tag', async () => {
+      await websiteGenerator.generate(websiteName, 'Bobby')
+
+      const fileContents = fs.readFileSync(`./${websiteName}/index.html`, { encoding: 'utf-8' })
+      expect(fileContents).toContain('<meta author="Bobby" />')
+    })
+
     it('shows the user the path of the directory', async () => {
       await websiteGenerator.generate(websiteName)
 
