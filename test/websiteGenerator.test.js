@@ -59,13 +59,13 @@ describe('WebsiteGenerator', () => {
     it('shows the user the path of the directory', async () => {
       await websiteGenerator.generate(websiteName)
 
-      expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}`)
+      expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}\n`)
     })
 
     it('shows the user the path to the html file', async () => {
       await websiteGenerator.generate(websiteName)
 
-      expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}/index.html`)
+      expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}/index.html\n`)
     })
   })
 
