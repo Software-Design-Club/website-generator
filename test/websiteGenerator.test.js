@@ -85,11 +85,12 @@ describe('WebsiteGenerator', () => {
       const websiteGenerator = new WebsiteGenerator(ui)
       websiteGenerator.generate = jest.fn()
 
-      process.nextTick(() => ui.write('my_website\n'))
+      setImmediate(() => ui.write('my_website\n'))
+      setImmediate(() => ui.write('Name\n'))
 
       await websiteGenerator.prompt()
 
-      expect(websiteGenerator.generate).toHaveBeenCalledWith('my_website')
+      expect(websiteGenerator.generate).toHaveBeenCalledWith('my_website', 'Name')
     })
   })
 })
