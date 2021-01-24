@@ -22,7 +22,7 @@ Redesign:
 JS/CSS:
     - Prompt with options for JS(Y/N)
     - Generate JS directory @done
-    - Does not generate JS directory
+    - Does not generate JS directory @done
     - Generate JS file based on response
     - Output directory and file to user
     - Prompt with options for CSS(Y/N)

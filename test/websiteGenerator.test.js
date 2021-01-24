@@ -83,6 +83,13 @@ describe('WebsiteGenerator', () => {
       const directory = fs.existsSync(`./${websiteName}/js`)
       expect(directory).toBeTruthy()
     })
+
+    it('does not generate a JS directory if user opts out', async () => {
+      await websiteGenerator.generate(websiteName, 'Something', false)
+
+      const directory = fs.existsSync(`./${websiteName}/js`)
+      expect(directory).toBeFalsy()
+    })
   })
 
   describe('prompt', () => {
