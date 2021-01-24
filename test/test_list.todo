@@ -27,9 +27,9 @@ JS/CSS:
     - Output directory @done
     - and file to user @done
     - Prompt with options for CSS(Y/N)
-    - Generate CSS directory based on response
-    - Generate CSS file based on response
-    - Output directory and file to user
+    - Generate CSS directory based on response @done
+    - Generate CSS file based on response @done
+
 
 Refactor:
   - Consolidate test setup

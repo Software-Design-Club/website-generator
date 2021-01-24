@@ -77,37 +77,75 @@ describe('WebsiteGenerator', () => {
       expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}/index.html\n`)
     })
 
-    it('generates a JS directory if user wants it', async () => {
-      await websiteGenerator.generate(websiteName, 'Something', true)
+    describe('Creating JS directory and file', () => {
+      it('generates a JS directory if user wants it', async () => {
+        await websiteGenerator.generate(websiteName, 'Something', true)
 
-      const directory = fs.existsSync(`./${websiteName}/js`)
-      expect(directory).toBeTruthy()
+        const directory = fs.existsSync(`./${websiteName}/js`)
+        expect(directory).toBeTruthy()
+      })
+
+      it('does not generate a JS directory if user opts out', async () => {
+        await websiteGenerator.generate(websiteName, 'Something', false)
+
+        const directory = fs.existsSync(`./${websiteName}/js`)
+        expect(directory).toBeFalsy()
+      })
+
+      it('shows the user the path to the JS directory', async () => {
+        await websiteGenerator.generate(websiteName, null, true)
+
+        expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}/js\n`)
+      })
+
+      it('creates a JS file', async () => {
+        await websiteGenerator.generate(websiteName, null, true)
+
+        const jsFile = fs.existsSync(`./${websiteName}/js/script.js`)
+        expect(jsFile).toBeTruthy()
+      })
+
+      it('shows the user the path to the JS file', async () => {
+        await websiteGenerator.generate(websiteName, null, true)
+
+        expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}/js/script.js\n`)
+      })
     })
 
-    it('does not generate a JS directory if user opts out', async () => {
-      await websiteGenerator.generate(websiteName, 'Something', false)
+    describe('Creating CSS directory and file', () => {
+      it('generates a CSS directory if user wants it', async () => {
+        await websiteGenerator.generate(websiteName, 'Something', false, true)
 
-      const directory = fs.existsSync(`./${websiteName}/js`)
-      expect(directory).toBeFalsy()
-    })
+        const directory = fs.existsSync(`./${websiteName}/css`)
+        expect(directory).toBeTruthy()
+      })
 
-    it('shows the user the path to the JS directory', async () => {
-      await websiteGenerator.generate(websiteName, null, true)
+      it('does not generate a CSS directory if user opts out', async () => {
+        await websiteGenerator.generate(websiteName, 'Something', false, false)
 
-      expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}/js\n`)
-    })
+        const directory = fs.existsSync(`./${websiteName}/css`)
+        expect(directory).toBeFalsy()
+      })
 
-    it('creates a JS file', async () => {
-      await websiteGenerator.generate(websiteName, null, true)
+      it('shows the user the path to the CSS directory', async () => {
+        await websiteGenerator.generate(websiteName, null, false, true)
 
-      const jsFile = fs.existsSync(`./${websiteName}/js/script.js`)
-      expect(jsFile).toBeTruthy()
-    })
+        expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}/css\n`)
+      })
 
-    it('shows the user the path to the JS file', async () => {
-      await websiteGenerator.generate(websiteName, null, true)
+      it('creates a CSS file', async () => {
+        await websiteGenerator.generate(websiteName, null, false, true)
 
-      expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}/js/script.js\n`)
+        const jsFile = fs.existsSync(`./${websiteName}/css/style.css`)
+        expect(jsFile).toBeTruthy()
+      })
+
+      it('shows the user the path to the CSS file', async () => {
+        await websiteGenerator.generate(websiteName, null, false, true)
+
+        expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}/css/style.css\n`)
+      })
+
     })
   })
 
