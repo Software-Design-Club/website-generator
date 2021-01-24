@@ -145,12 +145,11 @@ describe('WebsiteGenerator', () => {
 
         expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}/css/style.css\n`)
       })
-
     })
   })
 
   describe('prompt', () => {
-    describe('when the uses chooses to include js', () => {
+    describe('when the uses chooses to include js and css', () => {
       it('passes the user input to Website Generator', async () => {
         const ui = readline.createInterface({
           input: process.stdin,
@@ -162,14 +161,15 @@ describe('WebsiteGenerator', () => {
         setImmediate(() => ui.write('my_website\n'))
         setImmediate(() => ui.write('Name\n'))
         setImmediate(() => ui.write('Y\n'))
+        setImmediate(() => ui.write('Y\n'))
 
         await websiteGenerator.prompt()
 
-        expect(websiteGenerator.generate).toHaveBeenCalledWith('my_website', 'Name', true)
+        expect(websiteGenerator.generate).toHaveBeenCalledWith('my_website', 'Name', true, true)
       })
     })
 
-    describe('when the uses chooses to exclude js', () => {
+    describe('when the uses chooses to exclude js and css', () => {
       it('passes converts the user\'s js selection and passes it to the generator', async () => {
         const ui = readline.createInterface({
           input: process.stdin,
@@ -181,10 +181,11 @@ describe('WebsiteGenerator', () => {
         setImmediate(() => ui.write('my_website\n'))
         setImmediate(() => ui.write('Name\n'))
         setImmediate(() => ui.write('N\n'))
+        setImmediate(() => ui.write('N\n'))
 
         await websiteGenerator.prompt()
 
-        expect(websiteGenerator.generate).toHaveBeenCalledWith('my_website', 'Name', false)
+        expect(websiteGenerator.generate).toHaveBeenCalledWith('my_website', 'Name', false, false)
       })
     })
   })
