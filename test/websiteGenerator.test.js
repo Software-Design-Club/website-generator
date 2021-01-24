@@ -112,21 +112,42 @@ describe('WebsiteGenerator', () => {
   })
 
   describe('prompt', () => {
-    it('passes the user input to Website Generator', async () => {
-      const ui = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
+    describe('when the uses chooses to include js', () => {
+      it('passes the user input to Website Generator', async () => {
+        const ui = readline.createInterface({
+          input: process.stdin,
+          output: process.stdout
+        })
+        const websiteGenerator = new WebsiteGenerator(ui)
+        websiteGenerator.generate = jest.fn()
+
+        setImmediate(() => ui.write('my_website\n'))
+        setImmediate(() => ui.write('Name\n'))
+        setImmediate(() => ui.write('Y\n'))
+
+        await websiteGenerator.prompt()
+
+        expect(websiteGenerator.generate).toHaveBeenCalledWith('my_website', 'Name', true)
       })
-      const websiteGenerator = new WebsiteGenerator(ui)
-      websiteGenerator.generate = jest.fn()
+    })
 
-      setImmediate(() => ui.write('my_website\n'))
-      setImmediate(() => ui.write('Name\n'))
-      setImmediate(() => ui.write('Y\n'))
+    describe('when the uses chooses to exclude js', () => {
+      it('passes converts the user\'s js selection and passes it to the generator', async () => {
+        const ui = readline.createInterface({
+          input: process.stdin,
+          output: process.stdout
+        })
+        const websiteGenerator = new WebsiteGenerator(ui)
+        websiteGenerator.generate = jest.fn()
 
-      await websiteGenerator.prompt()
+        setImmediate(() => ui.write('my_website\n'))
+        setImmediate(() => ui.write('Name\n'))
+        setImmediate(() => ui.write('N\n'))
 
-      expect(websiteGenerator.generate).toHaveBeenCalledWith('my_website', 'Name', true)
+        await websiteGenerator.prompt()
+
+        expect(websiteGenerator.generate).toHaveBeenCalledWith('my_website', 'Name', false)
+      })
     })
   })
 })

@@ -20,7 +20,7 @@ Redesign:
   - Explore writing our own Promise wrapper around fs functions
     - Difference between mkdir and writeFile???
 JS/CSS:
-    - Prompt with options for JS(Y/N)
+    - Prompt with options for JS(Y/N) @done
     - Generate JS directory @done
     - Does not generate JS directory @done
     - Generate JS file based on response @done
