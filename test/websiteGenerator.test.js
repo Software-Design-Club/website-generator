@@ -76,6 +76,13 @@ describe('WebsiteGenerator', () => {
 
       expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}/index.html\n`)
     })
+
+    it('generates a JS directory if user wants it', async () => {
+      await websiteGenerator.generate(websiteName, 'Something', true)
+
+      const directory = fs.existsSync(`./${websiteName}/js`)
+      expect(directory).toBeTruthy()
+    })
   })
 
   describe('prompt', () => {

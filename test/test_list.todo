@@ -19,3 +19,16 @@ Redesign:
     - Put everything in index.js and split out later @done
   - Explore writing our own Promise wrapper around fs functions
     - Difference between mkdir and writeFile???
+JS/CSS:
+    - Prompt with options for JS(Y/N)
+    - Generate JS directory @done
+    - Does not generate JS directory
+    - Generate JS file based on response
+    - Output directory and file to user
+    - Prompt with options for CSS(Y/N)
+    - Generate CSS directory based on response
+    - Generate CSS file based on response
+    - Output directory and file to user
+
+Refactor:
+  - Consolidate test setup
