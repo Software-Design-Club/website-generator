@@ -23,9 +23,9 @@ JS/CSS:
     - Prompt with options for JS(Y/N)
     - Generate JS directory @done
     - Does not generate JS directory @done
-    - Generate JS file based on response
+    - Generate JS file based on response @done
     - Output directory @done
-    - and file to user
+    - and file to user @done
     - Prompt with options for CSS(Y/N)
     - Generate CSS directory based on response
     - Generate CSS file based on response

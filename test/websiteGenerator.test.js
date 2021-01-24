@@ -96,6 +96,20 @@ describe('WebsiteGenerator', () => {
 
       expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}/js\n`)
     })
+
+    it('creates a JS file', async () => {
+      await websiteGenerator.generate(websiteName, null, true)
+
+      const jsFile = fs.existsSync(`./${websiteName}/js/script.js`)
+      expect(jsFile).toBeTruthy()
+
+    })
+
+    it('shows the user the path to the JS file', async () => {
+      await websiteGenerator.generate(websiteName, null, true)
+
+      expect(ui.write).toHaveBeenCalledWith(`Created ./${websiteName}/js/script.js\n`)
+    })
   })
 
   describe('prompt', () => {
