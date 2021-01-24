@@ -102,7 +102,6 @@ describe('WebsiteGenerator', () => {
 
       const jsFile = fs.existsSync(`./${websiteName}/js/script.js`)
       expect(jsFile).toBeTruthy()
-
     })
 
     it('shows the user the path to the JS file', async () => {
@@ -123,10 +122,11 @@ describe('WebsiteGenerator', () => {
 
       setImmediate(() => ui.write('my_website\n'))
       setImmediate(() => ui.write('Name\n'))
+      setImmediate(() => ui.write('Y\n'))
 
       await websiteGenerator.prompt()
 
-      expect(websiteGenerator.generate).toHaveBeenCalledWith('my_website', 'Name')
+      expect(websiteGenerator.generate).toHaveBeenCalledWith('my_website', 'Name', true)
     })
   })
 })
