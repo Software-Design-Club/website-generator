@@ -3,3 +3,7 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  form(action="/", method="post")
+    label(for="website-name") Website Name
+    input(type="text" id='website-name')
+    input(type="submit", value="Create Website")
