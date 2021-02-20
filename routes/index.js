@@ -11,8 +11,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 router.post('/', function(req, res, next){
-  // Add zip archive attachment to the response
-  res.attachment('website.zip')
+  res.writeHead(200, {
+    'Content-Type': 'application/zip',
+    'Content-disposition': 'attachment; filename=website.zip'
+  });
 
   const zip = archiver('zip')
 
