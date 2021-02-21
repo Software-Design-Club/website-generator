@@ -1,35 +1,8 @@
-Create Basic Website:
-  - Create directory with given website name @done
-  - Create index.html file in the directory @done
-  - Index.html has title tag with website name as content @done
-  - Valid HTML File @done
-  - Prompt user for data @done
-    - Ask user for website name @done
-    - WebsiteGenerator.generate is called with given name @done
-  - Output directory, html file path to user @done
-
-Author name:
-  - If given an author name, index.html has meta tag with author name @done
-
-Redesign:
-  - Readline questions should return promises to allow for async / await @done
-  - Figure out entry point @done
-    - Kept it index.js @done
-  - Figure out how to coordinate getting answers with creating website @done
-    - Put everything in index.js and split out later @done
-  - Explore writing our own Promise wrapper around fs functions
-    - Difference between mkdir and writeFile???
-JS/CSS:
-    - Prompt with options for JS(Y/N) @done
-    - Generate JS directory @done
-    - Does not generate JS directory @done
-    - Generate JS file based on response @done
-    - Output directory @done
-    - and file to user @done
-    - Prompt with options for CSS(Y/N) @done
-    - Generate CSS directory based on response @done
-    - Generate CSS file based on response @done
-
-
-Refactor:
-  - Consolidate test setup
+Write CLI:
+  - Prompt for Site name
+  - Prompt for Author name
+  - Prompt for JS
+  - Prompt for CSS
+  - Print out Directory
+  - Print out path to index.html
+  - print out path to JS and CSS files
