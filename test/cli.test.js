@@ -13,7 +13,7 @@ describe('CLI', () => {
       siteName: 'Site Name: '
     }
 
-    const websiteOptions = await cli.prompt(configuration)
+    const websiteOptions = await cli.generateWebsiteOptions(configuration)
 
     expect(websiteOptions).toEqual({ siteName: 'My Website' })
   })
