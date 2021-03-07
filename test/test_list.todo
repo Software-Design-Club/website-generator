@@ -3,9 +3,11 @@ Write CLI:
   - Prompt for Author name @done
   - Call website generator with options @done
   - Update WebsiteGenerator.generate to use new API
-  - Print out Directory
-  - Print out path to index.html
-  - print out path to JS and CSS files
+  - Print out Directory @done
+  - Print out path to index.html @done
+  - print out path to JS and CSS files @done
+  - generator.generate - should return Promise
+  - Run method/ Coordinator
 
 Discarded:
   - Parse/Validate data - not doing for now
