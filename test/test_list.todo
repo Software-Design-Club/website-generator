@@ -1,8 +1,11 @@
 Write CLI:
   - Prompt for Site name @done
-  - Prompt for Author name
+  - Prompt for Author name @done
   - Prompt for JS
   - Prompt for CSS
   - Print out Directory
   - Print out path to index.html
   - print out path to JS and CSS files
+
+Discarded:
+  - Parse/Validate data - not doing for now
