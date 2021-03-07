@@ -2,7 +2,7 @@ const CLI = require('../lib/cli.js')
 const readline = require('readline')
 
 describe('CLI', () => {
-  it('returns a users desired website configuration', async () => {
+  it('calls generator with user input', async () => {
     const generator = { generate: jest.fn() }
     const io = readline.createInterface({
       input: process.stdin,
