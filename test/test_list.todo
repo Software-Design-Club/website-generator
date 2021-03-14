@@ -1,13 +1,21 @@
 Write CLI:
+  - Update WebsiteGenerator.generate to use new API
+    - WebsiteGenerator.generate takes in object @done
+    - No longer takes in UI @done
+    - No longer outputs @done
+    - No longer prompts @done
+  - generator.generate - should return Promise
+  - Check that websiteOptions are the right keys
+  - Run method/ Coordinator
+  - Delete Prompt WebsiteGenerator @done
   - Prompt for Site name @done
   - Prompt for Author name @done
   - Call website generator with options @done
-  - Update WebsiteGenerator.generate to use new API
+
   - Print out Directory @done
   - Print out path to index.html @done
   - print out path to JS and CSS files @done
-  - generator.generate - should return Promise
-  - Run method/ Coordinator
+
 
 Discarded:
   - Parse/Validate data - not doing for now
