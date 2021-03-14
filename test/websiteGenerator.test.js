@@ -98,7 +98,16 @@ describe('WebsiteGenerator', () => {
     })
 
     it('outputs a list of directories and files created', async () => {
-      await expect(websiteGenerator.generate({ siteName: websiteName })).resolves.toEqual([`./${websiteName}`, `./${websiteName}/index.html`])
+      const websiteOptions = { siteName: websiteName, generateJS: true, generateCSS: true }
+      await expect(websiteGenerator.generate(websiteOptions)).resolves.toEqual(
+        [`./${websiteName}`,
+        `./${websiteName}/index.html`,
+        `./${websiteName}/js`,
+        `./${websiteName}/js/script.js`,
+        `./${websiteName}/css`,
+        `./${websiteName}/css/style.css`
+        ]
+      )
     })
   })
 })
