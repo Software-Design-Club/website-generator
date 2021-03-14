@@ -4,7 +4,7 @@ Write CLI:
     - No longer takes in UI @done
     - No longer outputs @done
     - No longer prompts @done
-  - generator.generate - should return Promise
+  - generator.generate - should return Promise that resolves into array of files and file
   - Check that websiteOptions are the right keys
   - Run method/ Coordinator
   - Delete Prompt WebsiteGenerator @done
