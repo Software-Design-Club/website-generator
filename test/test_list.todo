@@ -4,9 +4,8 @@ Write CLI:
     - No longer takes in UI @done
     - No longer outputs @done
     - No longer prompts @done
-  - generator.generate - should return Promise that resolves into array of files and file
-  - Check that websiteOptions are the right keys
-  - Run method/ Coordinator
+  - generator.generate - should return Promise that resolves into array of files and directries @done
+  - Run method/ Coordinator @done
   - Delete Prompt WebsiteGenerator @done
   - Prompt for Site name @done
   - Prompt for Author name @done
@@ -17,7 +16,12 @@ Write CLI:
   - print out path to JS and CSS files @done
 
 
-Discarded:
+Put off:
   - Parse/Validate data - not doing for now
   - Prompt for JS
   - Prompt for CSS
+  - Check website options are the right keys
+
+Decision:
+  - We will leave coordination of the CLI in index.js
+
