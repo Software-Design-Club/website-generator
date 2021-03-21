@@ -17,7 +17,7 @@ Write CLI:
 
 Write Web UI:
   - Transform raw form submission into WebsiteGenerator contract
-  - Calls GeneratorService with transformed input
+  - Instantiates GeneratorService with transformed input
   - Generator Service
     - Call WebsiteGenerator with user input
     - Calls ZipArchiver with file paths
@@ -33,4 +33,5 @@ Put off:
 
 Decision:
   - We will leave coordination of the CLI in index.js
+  - Should CLI be in it's own directory?
 
