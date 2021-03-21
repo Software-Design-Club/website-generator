@@ -1,5 +1,5 @@
 Write CLI:
-  - Update WebsiteGenerator.generate to use new API
+  - Update WebsiteGenerator.generate to use new API @done
     - WebsiteGenerator.generate takes in object @done
     - No longer takes in UI @done
     - No longer outputs @done
@@ -15,12 +15,21 @@ Write CLI:
   - Print out path to index.html @done
   - print out path to JS and CSS files @done
 
+Write Web UI:
+  - Transform raw form submission into WebsiteGenerator contract
+  - Calls GeneratorService with transformed input
+  - Generator Service
+    - Call WebsiteGenerator with user input
+    - Calls ZipArchiver with file paths
+    - Returns Zip file path
+  - Send user zip file
 
 Put off:
   - Parse/Validate data - not doing for now
   - Prompt for JS
   - Prompt for CSS
   - Check website options are the right keys
+  - Have WebsiteGenerator.generate return file objects instead of strings
 
 Decision:
   - We will leave coordination of the CLI in index.js
