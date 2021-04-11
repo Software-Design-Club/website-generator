@@ -21,6 +21,7 @@ Write Web UI:
   - Generator Service
     - Call WebsiteGenerator with user input
     - Calls ZipArchiver with file paths
+    - Save Zip to disk
     - Returns Zip file path
   - Send user zip file
     - what happens if file doesn't exist?
