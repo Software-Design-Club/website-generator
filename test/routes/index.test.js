@@ -2,7 +2,18 @@ const app = require('../../app')
 const supertest = require('supertest')
 const GeneratorService = require('../../services/generatorService')
 const request = supertest(app)
-jest.mock('../../services/generatorService')
+
+const serviceOutput = {
+  fileName: 'test_website.zip',
+  filePath: '/Users/emmanuelgenard/Workspace/website-generator/test/fixtures/test_website.zip'
+}
+jest.mock('../../services/generatorService', () => {
+  return jest.fn().mockImplementation(() => {
+    return {
+      generateArchive: () => Promise.resolve(serviceOutput)
+    }
+  })
+})
 
 describe('/', () => {
   beforeEach(() => {
@@ -22,7 +33,7 @@ describe('/', () => {
     await request.post('/')
       .send('siteName=my_website')
       .expect('Content-Type', 'application/zip')
-      .expect('Content-disposition', 'attachment;filename=my_website.zip')
+      .expect('Content-disposition', `attachment;filename=${serviceOutput.fileName}`)
       .expect(200)
   })
 })

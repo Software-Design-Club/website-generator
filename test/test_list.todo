@@ -31,6 +31,9 @@ Put off:
   - Prompt for CSS
   - Check website options are the right keys
   - Have WebsiteGenerator.generate return file objects instead of strings
+  - Put off testing that sendFile is called with the right file path using "supertest"
+    - Maybe use content-length?
+  - How to get a path name that is not specific to a machine?
 
 Decision:
   - We will leave coordination of the CLI in index.js
