@@ -23,6 +23,7 @@ Write Web UI:
     - Calls ZipArchiver with file paths
     - Returns Zip file path
   - Send user zip file
+    - what happens if file doesn't exist?
 
 Put off:
   - Parse/Validate data - not doing for now
