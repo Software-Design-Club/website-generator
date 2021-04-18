@@ -16,10 +16,9 @@ Write CLI:
   - print out path to JS and CSS files @done
 
 Write Web UI:
-  - Instantiates GeneratorService with raw body
-  - Parse the body for website configuration
+  - Instantiates GeneratorService with raw body @done
   - Generator Service
-    - Call WebsiteGenerator with  website configuration
+    - Call WebsiteGenerator with  website configuration @done
     - Calls ZipArchiver with file paths
     - Save Zip to disk
     - Returns Zip file path
