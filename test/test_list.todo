@@ -16,13 +16,15 @@ Write CLI:
   - print out path to JS and CSS files @done
 
 Write Web UI:
-  - Transform raw form submission into WebsiteGenerator contract
-  - Instantiates GeneratorService with transformed input
+  - Instantiates GeneratorService with raw body
+  - Parse the body for website configuration
   - Generator Service
-    - Call WebsiteGenerator with user input
+    - Call WebsiteGenerator with  website configuration
     - Calls ZipArchiver with file paths
     - Save Zip to disk
     - Returns Zip file path
+    - returns zip file name
+    - Optional: Validate siteName is there
   - Send user zip file
     - what happens if file doesn't exist?
 
@@ -35,6 +37,7 @@ Put off:
   - Put off testing that sendFile is called with the right file path using "supertest"
     - Maybe use content-length?
   - How to get a path name that is not specific to a machine?
+  - We implicitly require siteName but no other configuration options
 
 Decision:
   - We will leave coordination of the CLI in index.js
