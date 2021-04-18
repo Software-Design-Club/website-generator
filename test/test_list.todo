@@ -41,4 +41,6 @@ Put off:
 Decision:
   - We will leave coordination of the CLI in index.js
   - Should CLI be in it's own directory?
+  - Node Project directory?
+  - Rethink/Redesign/Refactor what websiteGenerator returns
 
