@@ -12,7 +12,7 @@ router.post('/', async function (req, res, next) {
   const { fileName, filePath } = await generatorService.generateArchive()
   res.contentType('application/zip')
   res.header('Content-disposition', `attachment;filename=${fileName}`)
-  res.sendFile(`${filePath}`)
+  res.sendFile(`${filePath}`, { root: __dirname })
 })
 
 module.exports = router

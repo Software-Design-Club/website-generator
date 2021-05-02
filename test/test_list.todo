@@ -26,6 +26,7 @@ Write Web UI:
     - Optional: Validate siteName is there
   - Send user zip file
     - what happens if file doesn't exist?
+  - filePath must be absolute or specify root
 
 Put off:
   - Parse/Validate data - not doing for now

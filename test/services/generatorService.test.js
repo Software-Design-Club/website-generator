@@ -7,6 +7,10 @@ describe('GeneratorService', () => {
       siteName: 'my_website',
       authorName: 'My Name'
     }
+    // '/Users/emmanuelgenard/Workspace/website-generator/my_website.zip'
+    afterEach(() => {
+      fs.rmSync(`./${userConfig.siteName}.zip`, { force: false })
+    })
     it('calls websiteGenerator with the user configuration', () => {
       const mockWebsiteGenerator = {
         generate: jest.fn().mockResolvedValue([])
@@ -19,7 +23,7 @@ describe('GeneratorService', () => {
       expect(mockWebsiteGenerator.generate).toHaveBeenCalledWith({ siteName: 'my_website', authorName: 'My Name' })
     })
 
-    it('generates and saves a zip archive', async () => {
+    it.only('generates and saves a zip archive', async () => {
       const mockWebsiteGenerator = {
         generate: () => Promise.resolve(['/Users/emmanuelgenard/Workspace/website-generator/test/fixtures/test_website/', '/Users/emmanuelgenard/Workspace/website-generator/test/fixtures/test_website/index.html'])
       }
@@ -27,7 +31,7 @@ describe('GeneratorService', () => {
       const generatorService = new GeneratorService(userConfig, mockWebsiteGenerator)
       await generatorService.generateArchive()
 
-      const archiveExists = fs.existsSync(`${userConfig.siteName}.zip`)
+      const archiveExists = fs.existsSync(`./${userConfig.siteName}.zip`)
       expect(archiveExists).toBeTruthy()
     })
 

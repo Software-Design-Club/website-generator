@@ -19,16 +19,14 @@ class GeneratorService {
       if (index > 0) { // Do not try to archive directories
         const readStream = fs.createReadStream(path)
         zip.append(readStream, { name: `${index}` })
-        // readStream.close()
+        readStream.close()
       }
     })
 
-    zip.finalize()
+    zip.finalize().then((something) => console.log('something'))
 
-    return Promise.resolve({
-      fileName: fileName,
-      filePath: output.path
-    })
+    return Promise.resolve({ fileName: fileName, filePath: output.path }
+    )
   }
 }
 
