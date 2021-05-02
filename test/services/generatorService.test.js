@@ -31,6 +31,15 @@ describe('GeneratorService', () => {
       expect(archiveExists).toBeTruthy()
     })
 
-    it.todo('returns the file name and file path of the zip archive')
+    it('returns the file name and file path of the zip archive', async () => {
+      const mockWebsiteGenerator = {
+        generate: () => Promise.resolve(['/Users/emmanuelgenard/Workspace/website-generator/test/fixtures/test_website/', '/Users/emmanuelgenard/Workspace/website-generator/test/fixtures/test_website/index.html'])
+      }
+
+      const generatorService = new GeneratorService(userConfig, mockWebsiteGenerator)
+
+      const fileName = `${userConfig.siteName}.zip`
+      expect(await generatorService.generateArchive()).toEqual({ fileName: fileName, filePath: `./${fileName}` })
+    })
   })
 })

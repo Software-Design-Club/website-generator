@@ -19,10 +19,10 @@ Write Web UI:
   - Instantiates GeneratorService with raw body @done
   - Generator Service
     - Call WebsiteGenerator with  website configuration @done
-    - Calls ZipArchiver with file paths
-    - Save Zip to disk
-    - Returns Zip file path
-    - returns zip file name
+    - Calls ZipArchiver with file paths @done
+    - Save Zip to disk @done
+    - Returns Zip file path @done
+    - returns zip file name @done
     - Optional: Validate siteName is there
   - Send user zip file
     - what happens if file doesn't exist?

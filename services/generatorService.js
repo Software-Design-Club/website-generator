@@ -10,20 +10,25 @@ class GeneratorService {
 
   async generateArchive () {
     const createdFiles = await this.websiteGenerator.generate(this.userConfig)
-    const output = fs.createWriteStream(`./${this.userConfig.siteName}.zip`)
+    const fileName = `${this.userConfig.siteName}.zip`
+    const output = fs.createWriteStream(`./${fileName}`)
+
     const zip = archiver('zip')
     zip.pipe(output)
     createdFiles.forEach((path, index) => {
-      if (index > 0) {
-        zip.append(fs.createReadStream(path), { name: `${index}` })
+      if (index > 0) { // Do not try to archive directories
+        const readStream = fs.createReadStream(path)
+        zip.append(readStream, { name: `${index}` })
+        // readStream.close()
       }
     })
+
     zip.finalize()
 
-    return {
-      fileName: 'test_website.zip',
-      filePath: '/Users/emmanuelgenard/Workspace/website-generator/test/fixtures/test_website.zip'
-    }
+    return Promise.resolve({
+      fileName: fileName,
+      filePath: output.path
+    })
   }
 }
 
