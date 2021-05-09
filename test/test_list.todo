@@ -38,6 +38,7 @@ Put off:
     - Maybe use content-length?
   - How to get a path name that is not specific to a machine?
   - We implicitly require siteName but no other configuration options
+  - Deal with name clashes
 
 Decision:
   - We will leave coordination of the CLI in index.js

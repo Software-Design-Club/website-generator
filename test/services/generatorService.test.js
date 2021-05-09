@@ -1,10 +1,12 @@
 const GeneratorService = require('../../services/generatorService')
+const settings = require('../../settings')
 const fs = require('fs')
+const path = require('path')
 
 describe('GeneratorService', () => {
   describe('generateArchive', () => {
     const userConfig = {
-      siteName: 'my_website',
+      siteName: 'valid_zip',
       authorName: 'My Name'
     }
     // '/Users/emmanuelgenard/Workspace/website-generator/my_website.zip'
@@ -20,10 +22,10 @@ describe('GeneratorService', () => {
 
       generatorService.generateArchive()
 
-      expect(mockWebsiteGenerator.generate).toHaveBeenCalledWith({ siteName: 'my_website', authorName: 'My Name' })
+      expect(mockWebsiteGenerator.generate).toHaveBeenCalledWith({ siteName: 'valid_zip', authorName: 'My Name' })
     })
 
-    it.only('generates and saves a zip archive', async () => {
+    it('generates and saves a zip archive', async () => {
       const mockWebsiteGenerator = {
         generate: () => Promise.resolve(['/Users/emmanuelgenard/Workspace/website-generator/test/fixtures/test_website/', '/Users/emmanuelgenard/Workspace/website-generator/test/fixtures/test_website/index.html'])
       }
@@ -31,7 +33,8 @@ describe('GeneratorService', () => {
       const generatorService = new GeneratorService(userConfig, mockWebsiteGenerator)
       await generatorService.generateArchive()
 
-      const archiveExists = fs.existsSync(`./${userConfig.siteName}.zip`)
+      const filePath = path.resolve(settings.PROJECT_DIR, `${userConfig.siteName}.zip`)
+      const archiveExists = fs.existsSync(filePath)
       expect(archiveExists).toBeTruthy()
     })
 
