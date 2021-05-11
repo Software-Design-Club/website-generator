@@ -11,7 +11,7 @@ describe('GeneratorService', () => {
     }
     // '/Users/emmanuelgenard/Workspace/website-generator/my_website.zip'
     afterEach(() => {
-      fs.rmSync(`./${userConfig.siteName}.zip`, { force: false })
+      fs.rmSync(`${settings.PROJECT_DIR}/${userConfig.siteName}.zip`, { force: true })
     })
     it('calls websiteGenerator with the user configuration', () => {
       const mockWebsiteGenerator = {
@@ -25,22 +25,21 @@ describe('GeneratorService', () => {
       expect(mockWebsiteGenerator.generate).toHaveBeenCalledWith({ siteName: 'valid_zip', authorName: 'My Name' })
     })
 
-    it('generates and saves a zip archive', async () => {
+    it.only('generates and saves a zip archive', async () => {
       const mockWebsiteGenerator = {
-        generate: () => Promise.resolve(['/Users/emmanuelgenard/Workspace/website-generator/test/fixtures/test_website/', '/Users/emmanuelgenard/Workspace/website-generator/test/fixtures/test_website/index.html'])
+        generate: () => Promise.resolve([`${settings.PROJECT_DIR}/test/fixtures/test_website/`, `${settings.PROJECT_DIR}/test/fixtures/test_website/index.html`])
       }
 
       const generatorService = new GeneratorService(userConfig, mockWebsiteGenerator)
-      await generatorService.generateArchive()
-
-      const filePath = path.resolve(settings.PROJECT_DIR, `${userConfig.siteName}.zip`)
+      const { filePath } = await generatorService.generateArchive()
+      console.log(filePath)
       const archiveExists = fs.existsSync(filePath)
       expect(archiveExists).toBeTruthy()
     })
 
     it('returns the file name and file path of the zip archive', async () => {
       const mockWebsiteGenerator = {
-        generate: () => Promise.resolve(['/Users/emmanuelgenard/Workspace/website-generator/test/fixtures/test_website/', '/Users/emmanuelgenard/Workspace/website-generator/test/fixtures/test_website/index.html'])
+        generate: () => Promise.resolve([`${settings.PROJECT_DIR}/test/fixtures/test_website/`, `${settings.PROJECT_DIR}/test/fixtures/test_website/index.html`])
       }
 
       const generatorService = new GeneratorService(userConfig, mockWebsiteGenerator)
